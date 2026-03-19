@@ -4,20 +4,23 @@ const mongoose = require('mongoose');
 
 const userSchema = require('./DB/userSchema');
 const hashtagsSchema = require('./DB/hashtagsSchema');
-const articleSchema = require("./DB/articleSchema")
-
+const articleSchema = require("./DB/articleSchema");
+const registerRoute = require("./routes/registration");
 
 const app = express()
+app.use(express.json())
 
 const port = 3000
 
 
 
+app.use('/register', registerRoute);
+
 //routes TODO
 app.get(['/', '/index.html'], (req, res) => {
     res.sendFile("frontend/index.html", { root: __dirname })
 })
-
+// todo route 404
 
 
 
@@ -48,7 +51,6 @@ mongoose.connection.once('open', () => {
 
 
 // test connects
-const userModel = mongoose.model("users", userSchema);
 const hashtagsModel = mongoose.model("hashtags",hashtagsSchema);
 const articleModel = mongoose.model("articles",articleSchema);
 
