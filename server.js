@@ -6,17 +6,25 @@ const userSchema = require('./DB/userSchema');
 const hashtagsSchema = require('./DB/hashtagsSchema');
 const articleSchema = require("./DB/articleSchema");
 const registerRoute = require("./routes/registration");
+const loginRoute = require("./routes/login");
 
 const app = express()
 app.use(express.json())
+app.use(express.static(__dirname + "/frontend"));
 
 const port = 3000
 
 
 
-app.use('/register', registerRoute);
+app.use('/api/register', registerRoute);
+app.use('/api/login', loginRoute);
 
-//routes TODO
+
+
+// pages routes
+app.get(['/loginPage'], (req, res) => {
+    res.sendFile("frontend/login.html", { root: __dirname })
+})
 app.get(['/', '/index.html'], (req, res) => {
     res.sendFile("frontend/index.html", { root: __dirname })
 })

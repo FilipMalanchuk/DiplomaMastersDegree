@@ -1,0 +1,16 @@
+.inner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.loginBox {
+    min-width: 350px;
+    min-height: 450px;
+    border-radius: 20px;
+    background-color: #fff;
+    border: red 2px solid;
+    padding: 10px;
+}
+#errorText {
+    color: red;
+}

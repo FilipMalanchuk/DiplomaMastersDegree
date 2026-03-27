@@ -1,0 +1,18 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+html, body {
+    height: 100%;
+    background: #9b2a4c;
+    background: linear-gradient(135deg, rgba(155, 42, 76, 1) 0%, rgba(43, 255, 181, 1) 100%);
+}
+.wrapper {
+    height: 100%;
+}
+.inner {
+    width: 1440px;
+    margin: 0 auto;
+    height: 100%;
+}
