@@ -1,24 +1,15 @@
-require('dotenv').config();
-const express = require('express');
 const jwt = require('jsonwebtoken');
 
-const router = express.Router();
-
-router.post("/", async (req, res) => {
+function tokenVerify (req, res) {
     const token = req.cookies.token;
+    let user = {}
     try {
         const user = jwt.verify(token, process.env.JWT_SECRET);
-        return res.status(200).json({'message' : "user data recieved", 'code' : 200})
+        return {'verified':true,'user' : user}
     } catch (error) {
         res.clearCookie('token');
-        return res.status(400).json({'message':'cookie error', 'code' : 400})
+        return {'verified':false,'user' : user}
     }
-})
+}
 
-
-
-
-
-
-
-module.exports = router;
+module.exports = tokenVerify;

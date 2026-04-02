@@ -8,7 +8,8 @@ const hashtagsSchema = require('./DB/hashtagsSchema');
 const articleSchema = require("./DB/articleSchema");
 const registerRoute = require("./routes/registration");
 const loginRoute = require("./routes/login");
-const tokenVerification = require("./routes/tokenVerification")
+const tokenVerification = require("./routes/tokenVerification");
+const indexFeed = require("./routes/indexFeed")
 
 const app = express()
 app.use(express.json())
@@ -21,8 +22,7 @@ const port = 3000
 
 app.use('/api/register', registerRoute);
 app.use('/api/login', loginRoute);
-app.use('/api/tokenVerification', tokenVerification);
-
+app.use('/api/indexFeed', indexFeed);
 
 // pages routes
 app.get(['/loginPage'], (req, res) => {

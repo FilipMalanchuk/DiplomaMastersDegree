@@ -2,14 +2,12 @@ console.log(1)
 
 if (getCookie('token')) {
 
-
-    document.getElementById('boxToDisplayIfToken').style.display = 'flex'
     sendToken(getCookie('token'))
 }
 
 
 function sendToken(token) {
-    fetch(`${window.location.protocol}//${window.location.host}/api/tokenVerification`, {
+    fetch(`${window.location.protocol}//${window.location.host}/api/indexFeed`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
