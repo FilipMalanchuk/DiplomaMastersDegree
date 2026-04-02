@@ -1,16 +1,19 @@
 require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
+const cookieParser = require('cookie-parser');
 
 const userSchema = require('./DB/userSchema');
 const hashtagsSchema = require('./DB/hashtagsSchema');
 const articleSchema = require("./DB/articleSchema");
 const registerRoute = require("./routes/registration");
 const loginRoute = require("./routes/login");
+const tokenVerification = require("./routes/tokenVerification")
 
 const app = express()
 app.use(express.json())
 app.use(express.static(__dirname + "/frontend"));
+app.use(cookieParser());
 
 const port = 3000
 
@@ -18,7 +21,7 @@ const port = 3000
 
 app.use('/api/register', registerRoute);
 app.use('/api/login', loginRoute);
-
+app.use('/api/tokenVerification', tokenVerification);
 
 
 // pages routes

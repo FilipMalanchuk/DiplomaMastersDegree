@@ -22,9 +22,14 @@ function sendData(email, password) {
     }).then((data)=> {
         newData = JSON.parse(JSON.stringify(data))
         displayError(newData.message)
+        if (newData.code === 200) {
+            let reddirUrl = `${window.location.protocol}//${window.location.host}${'/'}`;
+            window.location.href = reddirUrl;
+        }
     }).catch(err => console.log(err));
 }
 
 function displayError (text) {
     document.getElementById("errorText").innerText = text
 }
+
