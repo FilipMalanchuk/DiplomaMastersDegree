@@ -10,6 +10,7 @@ const registerRoute = require("./routes/registration");
 const loginRoute = require("./routes/login");
 const tokenVerification = require("./routes/tokenVerification");
 const indexFeed = require("./routes/indexFeed")
+const checkLogged = require("./routes/checkLogged")
 
 const app = express()
 app.use(express.json())
@@ -23,6 +24,7 @@ const port = 3000
 app.use('/api/register', registerRoute);
 app.use('/api/login', loginRoute);
 app.use('/api/indexFeed', indexFeed);
+app.use('/api/checkLogged',checkLogged)
 
 // pages routes
 app.get(['/loginPage'], (req, res) => {

@@ -3,9 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>registration</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/registration.css">
+    <title>Registration page</title>
 </head>
 <body>
-    <p>на этой странице должна быть регистрация/сообщение вы уже зарегистрированы(автопереход или что-то такое)</p>
+    <div class="wrapper">
+        <div class="inner">
+            <div class="registrationBox">
+                <input type="text" class="name necessary" placeholder="Name">
+                <input type="email" class="email necessary" placeholder="Email">
+                <input type="password" class="password necessary" id="password1" placeholder="Password">
+                <input type="password" class="password necessary" id="password2" placeholder="Confirm Password">
+                <input type="text" class="telegram" placeholder="Telegram">
+                <p>* marked are necessary</p>
+                <p id="error"></p>
+                <div class="registrationBTN"> Register</div>
+            </div>
+        </div><!-- end of inner -->
+    </div><!-- end of wrapper -->
+    <p style="position: absolute; top: 10px;">на этой странице должна быть регистрация/сообщение вы уже зарегистрированы(автопереход или что-то такое)</p>
+    <script src="js/registration.js"></script>
 </body>
 </html>

@@ -1,5 +1,3 @@
-console.log(1)
-
 if (getCookie('token')) {
 
     sendToken(getCookie('token'))

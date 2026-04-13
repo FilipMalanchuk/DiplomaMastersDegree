@@ -1,0 +1,72 @@
+.inner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.registrationBox {
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px;
+    background-color: rgba(0, 0, 0,0.5);
+    padding: 20px;
+    justify-content: center;
+    align-items: center;
+}
+.registrationBox > * {
+    min-width: 350px;
+    height: 50px;
+    margin-bottom: 20px;
+    text-indent: 20px;
+    border-radius: 5px;
+    position: relative;
+    display: block;
+}
+.registrationBox input {
+    border: solid 2px black;
+    border-radius: 5px;
+    font-size: 20px;
+    background-color: rgb(186 186 186);
+    color:#252525;
+}
+.registrationBox input::placeholder {
+    text-indent: 20px;
+    color:#252525;
+}
+.registrationBox > p {
+    text-indent: 0;
+    margin-bottom: 5px;
+    height: auto;
+}
+.telegram {
+    margin-bottom: 5px;
+}
+.registrationBox .registrationBTN {
+    padding: 20px;
+    height: auto;
+    margin-bottom: 0;
+    text-indent: 0;
+    text-decoration: none;
+    font-size: 20px;
+    border: solid 2px black;
+    border-radius: 5px;
+    min-width: 200px;
+    text-align: center;
+    cursor: pointer;
+    background-color: rgb(36 130 97); 
+    color: white;
+    transition: background-color 0.5s;
+}
+.registrationBox .registrationBTN:hover {
+    background-color: rgb(12, 233, 155);;
+}
+.necessary {
+    background-image: url("../img/mandatory-svgrepo-com.svg");
+    background-position: left top;
+    background-size: 10px 10px;
+    background-repeat: no-repeat;
+}
+#error {
+    color: red;
+}
