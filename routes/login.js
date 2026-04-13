@@ -30,7 +30,7 @@ router.post("/", async (req, res) => {
             console.error('wrong password');
             return res.status(400).json({'message':'login error', 'code' : 400});
         }
-        const token = jwt.sign({email : user.email}, process.env.JWT_SECRET, {expiresIn:"5s"});
+        const token = jwt.sign({email : user.email}, process.env.JWT_SECRET, {expiresIn:"1h"});
         res.cookie('token',token);
         return res.status(200).json({message : "login success", 'code' : 200});
         // maybe add redirect here TODO

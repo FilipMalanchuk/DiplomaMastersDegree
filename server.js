@@ -28,6 +28,9 @@ app.use('/api/indexFeed', indexFeed);
 app.get(['/loginPage'], (req, res) => {
     res.sendFile("frontend/login.html", { root: __dirname })
 })
+app.get(['/registerPage'], (req, res) => {
+    res.sendFile("frontend/registration.html", { root: __dirname })
+})
 app.get(['/', '/index.html'], (req, res) => {
     res.sendFile("frontend/index.html", { root: __dirname })
 })

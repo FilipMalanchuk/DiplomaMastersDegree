@@ -3,6 +3,7 @@ let submitBtn = document.getElementById('btnLogin')
 submitBtn.addEventListener('click', () => {
     let emailVal = document.getElementById('emailForLogin').value
     let passwordVal = document.getElementById('passwordForLogin').value
+    // TODO value checks if empty
     sendData(emailVal, passwordVal)
 })
 
