@@ -58,7 +58,8 @@
     color: white;
     transition: background-color 0.5s;
 }
-.registrationBox .registrationBTN:hover {
+.registrationBox .registrationBTN:hover,
+.signIn a:hover {
     background-color: rgb(12, 233, 155);;
 }
 .necessary {
@@ -69,4 +70,22 @@
 }
 #error {
     color: red;
+}
+.signIn {
+    display: flex;
+    justify-content: flex-end;
+}
+.signIn a {
+    display: block;
+    text-decoration: none;
+    color: white;
+    padding: 3px;
+    cursor: pointer;
+    cursor: pointer;
+    background-color: rgb(36 130 97); 
+    color: white;
+    transition: background-color 0.5s;
+    border: solid 2px black;
+    border-radius: 5px;
+    padding: 8px;
 }
