@@ -4,25 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/index.css">
     <title>news</title>
-    <style>
-        p
-        {background-color: red;
-        min-width: 500px;
-        min-height: 500px;}
-        #boxToDisplayIfToken {
-            width: 50px;
-            height: 50px;
-            background-color: blue;
-            display: none;
-            position: absolute;
-            top: 100px;
-            left: 100px;
-        }
-    </style>
 </head>
 <body>
-    <p> на этой странице должна быть:
+    <div class="wrapper">
+        <div class="inner">
+            <div class="header">
+                <div class="btnLine">
+                    <div class="searchBTN BTN"><a href="#">Search</a></div>
+                    <div class="logInBTN BTN"><a href="/loginPage">Login</a></div>
+                    <div class="registerBTN BTN"><a href="/registerPage">Register</a></div>
+                </div>
+                <div class="menu">
+                    <div class="home current"><a href="#">Home</a></div>
+                    <div class="hashtags"><a href="#">Hashtags</a></div>
+                    <div class="subscribtions"><a href="#">My Subscriptions</a></div>
+                </div>
+            </div>
+        </div><!-- end of inner -->
+    </div><!-- end of wrapper -->
+
+
+
+
+    <p style="position: absolute; bottom: 10px;"> на этой странице должна быть:
         лента новостей
         хедер
         хештеги для поиска
