@@ -1,0 +1,173 @@
+/* header starts here */
+.header {
+    width: 100%;
+    min-height: 100px;
+    background-color: rgba(0, 0, 0,0.5);
+}
+.btnLine {
+    padding-top: 10px;
+    min-height: 40px;
+    display: flex;
+    justify-content: flex-end;
+}
+.BTN {
+    margin-right: 20px;
+}
+.BTN a {
+    display: block;
+    height: 55px;
+    padding: 15px 30px;
+    text-decoration: none;
+    font-size: 20px;
+    border: solid 2px black;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+    background-color: rgb(36 130 97); 
+    color: white;
+    transition: background-color 0.5s;
+}
+.BTN a:hover {
+    background-color: rgb(12, 233, 155);
+}
+
+.menu {
+    display: flex;
+    justify-content: center;
+}
+.menu a {
+    display: block;
+    font-size: 20px;
+    padding: 15px 10px;
+    text-decoration: none;
+    color: white;
+}
+.menu .current {
+    position: relative;
+}
+.menu .current::after {
+    content: "";
+    width: 100%;
+    height: 2px;
+    background-color: rgb(12, 233, 155); 
+    position:absolute;
+    bottom: 5px;
+}
+.menu .current a {
+    color: rgb(12, 233, 155);
+}
+.menu a:hover {
+    background-color: #5c5c5c6b;
+}
+
+
+/* header ends here */
+
+.profileMain {
+    margin-top: 15px;
+    width: 100%;
+    min-height: 100px;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.profileMain .profileInner {
+    width: 800px;
+    height: 400px;
+}
+.profileMain .image {
+    width: 200px;
+    height: 200px;
+    background-image: url('../img/user-3296.svg');
+    background-color: white;
+    background-repeat: no-repeat;
+    background-position: center; 
+    background-size: cover;
+    background-size: 105%;
+    border-radius: 50%;    
+    margin-bottom: 30px;
+}
+.profileInner .profileName,
+.profileInner .profileEmail,
+.profileInner .profileRole {
+    font-size: 24px;
+    color:white;
+    margin-top: 10px;
+}
+
+
+/* rolesPanel starts here */
+.rolesPanel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15px;
+}
+.rolesPanel .rolesInner {
+    width: 800px;
+    min-height: 400px;
+}
+.rolesPanel .userTable {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+}
+.rolesPanel .userTableLine {
+    width: 100%;
+    min-height: 30px;
+    display: flex;
+    border-bottom: 1px solid black;
+}
+.rolesPanel .userTableLine:nth-child(2n) {
+    background-color: rgb(175, 175, 175);
+}
+.rolesPanel .userTableLine > * {
+    padding: 5px 20px 5px 0;
+    width: 200px;
+    margin-right: 2px;
+    border-right: black solid 2px;
+    text-align: center;
+    display: inline-block;
+    vertical-align: middle;
+    min-width: 100px;
+}
+.rolesPanel .userTableLine .promotionPanel_UserName,
+.rolesPanel .userTableLine .promotionPanel_UserEmail {
+    overflow: scroll;
+}
+.rolesPanel .userTableLine .promotionPanel_UserEmail {
+    width: 300px;
+}
+.rolesPanel .userTableLine > * > span {
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 35px;
+}
+.radioLine {
+    text-align: left;
+}
+.rolesPanel .bannedStatus {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pages {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.pages .pageButton {
+    padding: 10px;
+    background-color: green;
+    color: white;
+    font-size: 20px;
+    margin: 20px;
+}
+.addedData .confirmButton span {
+    background-color: green;
+    cursor: pointer;
+    color: white;
+}

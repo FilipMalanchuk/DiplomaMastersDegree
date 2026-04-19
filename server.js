@@ -9,8 +9,9 @@ const articleSchema = require("./DB/articleSchema");
 const registerRoute = require("./routes/registration");
 const loginRoute = require("./routes/login");
 const tokenVerification = require("./routes/tokenVerification");
-const indexFeed = require("./routes/indexFeed")
-const checkLogged = require("./routes/checkLogged")
+const indexFeed = require("./routes/indexFeed");
+const checkLogged = require("./routes/checkLogged");
+const adminData = require("./routes/adminData")
 
 const app = express()
 app.use(express.json())
@@ -24,7 +25,9 @@ const port = 3000
 app.use('/api/register', registerRoute);
 app.use('/api/login', loginRoute);
 app.use('/api/indexFeed', indexFeed);
-app.use('/api/checkLogged',checkLogged)
+app.use('/api/checkLogged',checkLogged);
+app.use('/api/adminData', adminData);
+
 
 // pages routes
 app.get(['/loginPage'], (req, res) => {
@@ -35,6 +38,9 @@ app.get(['/registerPage'], (req, res) => {
 })
 app.get(['/', '/index.html'], (req, res) => {
     res.sendFile("frontend/index.html", { root: __dirname })
+})
+app.get(['/myProfile'],(req, res) => {
+    res.sendFile("frontend/myProfile.html", { root: __dirname })
 })
 // todo route 404
 

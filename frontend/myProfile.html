@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/myProfile.css">
+    <title>news</title>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="inner">
+            <div class="header">
+                <div class="btnLine">
+                    <div class="searchBTN BTN"><a href="#">Search</a></div>
+                </div>
+                <div class="menu">
+                    <div class="home"><a href="/index.html">Home</a></div>
+                    <div class="hashtags"><a href="#">Hashtags</a></div>
+                    <div class="subscribtions"><a href="#">My Subscriptions</a></div>
+                </div>
+            </div> <!-- end of header -->
+            <div class="profileMain">
+                <div class="profileInner">
+                    <div class="image"></div>
+                    <div class="profileName"><span>Name: </span><span class="name"></span></div>                    
+                    <div class="profileEmail"><span>Email: </span><span class="email"></span></div> 
+                    <div class="profileRole"><span>Role: </span><span class="role"></span></div>
+                    <div class="mySubscriptions" style="color: red;">
+                        my Subscriptions: 
+                        sport
+                        politics
+                        something else
+                    </div>
+                </div>
+            </div> <!-- end of profileMain -->
+            <div class="rolesPanel" style="display: none;">
+                <div class="rolesInner">
+                    <div class="userTable">
+                        <div class="userTableLine">
+                            <div class="promotionPanel_UserName"><span>Name</span></div>
+                            <div class="promotionPanel_UserEmail"><span>Email</span></div>
+                            <div class="promotionPanel_UserRole"><span>User Role</span></div>
+                            <div class="promotionPanel_promoList">
+                                <div class="radioLine">
+                                    <input type="radio" name="assignRole" value="user" id="radioUser" disabled/>
+                                <label for="radioUser">User</label>
+                                </div>
+                                <div class="radioLine">
+                                    <input type="radio" name="assignRole" value="redactor" id="radioRedactor" disabled/>
+                                <label for="radioRedactor">Redactor</label>
+                                </div>
+                            </div>
+                            <div class="bannedStatus"><input type="checkbox" disabled></div>
+                            <div><span>Confirm</span></div>
+                        </div>
+                    </div>
+                    <div class="pages">
+                        <div class="pageButton" id="previous">Previous</div>
+                        <div class="pageButton" id="next">Next</div>
+                    </div>
+                </div>
+            </div><!-- end of rolesPanel -->
+        </div><!-- end of inner -->
+    </div><!-- end of wrapper -->
+
+
+
+    <script src="js/myProfile.js"></script>
+</body>
+</html>

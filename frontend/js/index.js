@@ -17,8 +17,16 @@ function sendToken(token) {
     }).then((data)=> {
         newData = JSON.parse(JSON.stringify(data))
         if (newData.code === 200) {
-            // display aditional intormation on the page
-            document.getElementById('boxToDisplayIfToken').style.display = 'flex'
+            // user is logged in, remove buttons register and log in from the panel
+            document.querySelector(".logInBTN").style.display = "none";
+            document.querySelector(".registerBTN").style.display = "none";
+
+            let userProfileBlock = document.querySelector(".userProfile")
+            userProfileBlock.style.display = "flex";
+            document.querySelector('.userName').textContent = newData.user.name;
+            document.querySelector(".userEmail").textContent = newData.user.email;
+
+            console.log(newData)
         }
     }).catch(err => console.log(err));
 }

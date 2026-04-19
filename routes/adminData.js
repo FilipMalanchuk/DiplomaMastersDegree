@@ -18,16 +18,18 @@ router.post('/', async (req, res) => {
     // token verified
     let userEmail = verifyObj.user.email;
     let userData = await userModel.findOne({'email' : userEmail});
-    return res.status(200).json({
-        'message' : "user data recieved", 
-        'code' : 200, 
-        'user' : {
-            'name' : userData.name,
-            'email' : userData.email, 
-            'role' : userData.role, 
-            'banned' : userData.banned
+    if (userData.role === "admin") {
+        let pageToGet = req.body.page; 
+        if (pageToGet === undefined) {
+            return res.status(400).json({'message':'server error', 'code' : 400})
         }
-    })
+        let nData = 10;
+        let dataArr = await userModel.find({'role':{$ne : 'admin'}}, {'name':1,'email':1,'role':1,'banned':1,'telegram':1}).skip((pageToGet - 1) * nData).limit(nData);
+
+        return res.status(200).json({'message' : 'admin verified', 'code' : 200, 'dataArr' : dataArr})
+    } else {
+        return res.status(400).json({'message':'cookie error', 'code' : 400})
+    }
 })
 
 
