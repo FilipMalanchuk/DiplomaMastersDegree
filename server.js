@@ -11,7 +11,8 @@ const loginRoute = require("./routes/login");
 const tokenVerification = require("./routes/tokenVerification");
 const indexFeed = require("./routes/indexFeed");
 const checkLogged = require("./routes/checkLogged");
-const adminData = require("./routes/adminData")
+const adminData = require("./routes/adminData");
+const adminChangeUserData = require("./routes/adminChangeUserData")
 
 const app = express()
 app.use(express.json())
@@ -26,7 +27,9 @@ app.use('/api/register', registerRoute);
 app.use('/api/login', loginRoute);
 app.use('/api/indexFeed', indexFeed);
 app.use('/api/checkLogged',checkLogged);
+
 app.use('/api/adminData', adminData);
+app.use('/api/adminChangeUserData', adminChangeUserData);
 
 
 // pages routes

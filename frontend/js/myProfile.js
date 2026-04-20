@@ -101,7 +101,7 @@ function getAdminData(page) {
                         }
 
                         if (element.banned === true) {
-                            stringToAdd = stringToAdd.split('type="checkbox"').join(' checked ')
+                            stringToAdd = stringToAdd.split('type="checkbox"').join(' type="checkbox" checked ')
                         }
                 
                 whereToAddElements.insertAdjacentHTML('beforeend', stringToAdd);
@@ -139,6 +139,34 @@ function addListenersToAddedData(){
 }
 //data change
 function changeData() {
-    console.log(1);
+    let obj = getData(this);
+    console.log(obj);
+    adminChangeUserData(obj);
 }
 
+function getData(elem){
+    let lineData = elem.parentElement.parentElement
+    console.log(lineData);
+    let email = lineData.querySelector(".promotionPanel_UserEmail span").innerHTML;
+    let role = lineData.querySelector(".promotionPanel_promoList input:checked").value;
+    let bannedStatus = lineData.querySelector(".bannedStatus input").checked;
+    return {'email' : email, 'role' : role, 'banned' : bannedStatus}
+}
+
+function adminChangeUserData(obj) {
+    fetch(`${window.location.protocol}//${window.location.host}/api/adminChangeUserData`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        credentials: "include",
+        body : JSON.stringify(obj)
+    }).then(res => {
+        return res.json();
+    }).then((data)=> {
+        newData = JSON.parse(JSON.stringify(data))
+        if (newData.code === 200) {
+            console.log('data changed')
+        }
+    }).catch(err => console.log(err));
+}

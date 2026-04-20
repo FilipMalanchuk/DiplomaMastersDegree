@@ -171,3 +171,13 @@
     cursor: pointer;
     color: white;
 }
+.addedData .promotionPanel_promoList input[value="redactor"]:checked:after {
+        width: 12px;
+        height: 12px;
+        border-radius: 15px;
+        position: relative;
+        background-color: #b7a700;
+        content: '';
+        display: inline-block;
+        visibility: visible;
+}
