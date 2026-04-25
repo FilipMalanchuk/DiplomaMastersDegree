@@ -1,0 +1,11 @@
+.inner {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+.postBox {
+    width: 800px;
+    min-height: 400px;
+    background-color: red;
+}

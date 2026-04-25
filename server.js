@@ -45,6 +45,9 @@ app.get(['/', '/index.html'], (req, res) => {
 app.get(['/myProfile'],(req, res) => {
     res.sendFile("frontend/myProfile.html", { root: __dirname })
 })
+app.get(['/newPost'], (req, res) => {
+    res.sendFile("frontend/newPost.html", {root: __dirname})
+})
 // todo route 404
 
 

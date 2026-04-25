@@ -1,45 +1,16 @@
 // check if user is already logged in and reddirect him to index page
-if (getCookie('token')) {
 
-    sendToken(getCookie('token'))
-}
+import {sendToken, getCookie} from './tokenConfirmation.js'
 
-function sendToken(token) {
-    fetch(`${window.location.protocol}//${window.location.host}/api/checkLogged`, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        credentials: "include"
-    }).then(res => {
-        console.log(res)
-        return res.json();
-    }).then((data)=> {
-        newData = JSON.parse(JSON.stringify(data))
-        if (newData.code === 200) {
-            // user already logged in
+let tokenCookie = getCookie('token');
+if (tokenCookie) {
+    let answer = await sendToken(tokenCookie);
+    console.log(answer)
+    if (answer.tokenConfirmed){
+         // user is logged in
             let reddirUrl = `${window.location.protocol}//${window.location.host}${'/'}`;
             window.location.href = reddirUrl;
-            
-        }
-    }).catch(err => console.log(err));
-}
-
-
-function getCookie(cname) {
-  let name = cname + "=";
-  let decodedCookie = decodeURIComponent(document.cookie);
-  let ca = decodedCookie.split(';');
-  for(let i = 0; i <ca.length; i++) {
-    let c = ca[i];
-    while (c.charAt(0) == ' ') {
-      c = c.substring(1);
     }
-    if (c.indexOf(name) == 0) {
-      return c.substring(name.length, c.length);
-    }
-  }
-  return "";
 }
 // end of check if user logged in
 
@@ -103,7 +74,7 @@ function sendData() {
         console.log(res)
         return res.json();
     }).then((data)=> {
-        newData = JSON.parse(JSON.stringify(data))
+        let newData = JSON.parse(JSON.stringify(data))
         // if registration was a success
         if (newData.message === "User created") {
             let reddirUrl = `${window.location.protocol}//${window.location.host}${'/loginPage'}`;

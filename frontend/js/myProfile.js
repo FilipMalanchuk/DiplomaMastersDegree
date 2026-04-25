@@ -1,55 +1,27 @@
-let pageNumber = 1;
-if (getCookie('token')) {
+import {sendToken, getCookie} from './tokenConfirmation.js'
 
-    sendToken(getCookie('token'))
+let tokenCookie = getCookie('token');
+if (tokenCookie) {
+    let answer = await sendToken(tokenCookie);
+    if (answer.tokenConfirmed){
+         // user is logged in
+            document.querySelector(".profileName span.name").textContent = answer.data.user.name;
+            document.querySelector(".profileEmail span.email").textContent = answer.data.user.email;
+            document.querySelector(".profileRole span.role").textContent = answer.data.user.role;
+            if(answer.data.user.role === "admin") {
+                adminPanelDisplay();
+                getAdminData(1);
+            }
+    }
 } else {
     let reddirUrl = `${window.location.protocol}//${window.location.host}${'/'}`;
     window.location.href = reddirUrl;
 }
 
-function sendToken(token) {
-    fetch(`${window.location.protocol}//${window.location.host}/api/indexFeed`, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        credentials: "include"
-    }).then(res => {
-        console.log(res)
-        return res.json();
-    }).then((data)=> {
-        newData = JSON.parse(JSON.stringify(data))
-        if (newData.code === 200) {
-            // user is logged in, remove buttons register and log in from the panel        
-            document.querySelector(".profileName span.name").textContent = newData.user.name;
-            document.querySelector(".profileEmail span.email").textContent = newData.user.email;
-            document.querySelector(".profileRole span.role").textContent = newData.user.role;
-            console.log(newData)
-            if(newData.user.role === "admin") {
-                adminPanelDisplay();
-                getAdminData(1);
-            }
-        }
-    }).catch(err => console.log(err));
-}
 
 
-
-function getCookie(cname) {
-  let name = cname + "=";
-  let decodedCookie = decodeURIComponent(document.cookie);
-  let ca = decodedCookie.split(';');
-  for(let i = 0; i <ca.length; i++) {
-    let c = ca[i];
-    while (c.charAt(0) == ' ') {
-      c = c.substring(1);
-    }
-    if (c.indexOf(name) == 0) {
-      return c.substring(name.length, c.length);
-    }
-  }
-  return "";
-}
+/////////Admin stuff statrs here
+let pageNumber = 1;
 
 function adminPanelDisplay() {
     document.querySelector('.rolesPanel').style.display = "flex"
@@ -65,13 +37,11 @@ function getAdminData(page) {
             'page' : page
         })
     }).then(res => {
-        console.log(res)
         return res.json();
     }).then((data)=> {
-        newData = JSON.parse(JSON.stringify(data))
+        let newData = JSON.parse(JSON.stringify(data))
         if (newData.code === 200) {
             // TODO add removeOfAllnewlyadded elements
-            console.log(newData)
             let whereToAddElements = document.querySelector('.userTable');
             let counter = 0;
             newData.dataArr.forEach(element => {
@@ -170,3 +140,5 @@ function adminChangeUserData(obj) {
         }
     }).catch(err => console.log(err));
 }
+
+/////Admin stuff ends here
