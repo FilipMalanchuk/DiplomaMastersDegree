@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +9,7 @@
     <link rel="stylesheet" href="css/newPost.css">
     <title>New Post</title>
 </head>
+
 <body>
     <div class="wrapper">
         <div class="inner">
@@ -30,16 +32,24 @@
                     <div class="subscribtions"><a href="#">My Subscriptions</a></div>
                 </div>
             </div> <!-- end of header -->
-
+            <div class="logInToPost">You must be logged in to post</div>
             <div class="postBox">
-                <div class="postButtons"></div>
-                <div class="postHeader"></div>
-                <div class="postText"></div>
-                <div class="postTags"></div>
+                <input type="text" class="postLine postHeader" placeholder="Header">
+                <textarea name="postTextarea" id="psotTextArea" class="postLine postText"
+                    placeholder="Article Text"></textarea>
+                <div class="tagsDiv postLine">
+                    <div class="tagLine">
+                        <input type="text" class="postTags" placeholder="Tag" id="postTags">
+                        <div class="confirmTag tagBTN">Confirm tag</div>
+                    </div>
+                </div>
+                <input type="file" name="postImage" id="postImage">
+                <div class="postBTN">Post</div>
             </div>
         </div><!-- end of inner -->
     </div> <!-- end of wrapper -->
 
     <script type="module" src="js/newPost.js"></script>
 </body>
+
 </html>

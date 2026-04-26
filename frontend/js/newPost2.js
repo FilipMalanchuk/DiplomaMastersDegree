@@ -17,25 +17,3 @@ if (tokenCookie) {
         document.querySelector(".userEmail").textContent = answer.data.user.email;
     }
 }
-
-let confirmTagBTN = document.querySelector(".confirmTag"); 
-confirmTagBTN.addEventListener('click', (e)=>{
-    let inputedTag = document.querySelector('#postTags').value;
-    insertTag(inputedTag)
-})
-function insertTag(value) {
-    let target = document.querySelector(".tagsDiv");
-    let insertedText = `<div class="tagLine">
-                        <p class="confirmedTag">${value}</p>
-                        <div class="removeTag tagBTN">Remove</div>
-                    </div>`
-    target.insertAdjacentHTML('afterbegin',insertedText);
-    confirmedTagEvents()
-}
-function confirmedTagEvents (){
-    document.querySelectorAll('.removeTag').forEach(item => {
-        item.addEventListener("click", ()=>{
-            item.parentElement.remove();
-        })
-    })
-}

@@ -4,8 +4,87 @@
     justify-content: flex-start;
     align-items: center;
 }
+.logInToPost {
+    font-size: 24px;
+    color: red;
+    padding: 5px;
+    border: 1px solid white;
+    border-radius: 5px;
+    margin: 5px;
+    background-color: white;
+}
 .postBox {
     width: 800px;
     min-height: 400px;
-    background-color: red;
+    background-color: white;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 5px;
+}
+.postBox .postLine {
+    width: 100%;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 5px 10px;
+    margin: 10px 0;
+    font-size: 20px;
+    min-height: 40px;
+}
+.postBox .postText {
+    min-height: 300px;
+}
+.tagLine {
+    display: flex;
+    margin-bottom: 5px;
+}
+.tagLine input,
+.tagLine p {
+    font-size: 20px;
+    margin-right: 20px;
+}
+.tagLine .confirmedTag {
+    background-color: grey;
+    padding: 4px 4px;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+.tagBTN {
+    padding: 5px 10px;
+    font-size: 20px;
+    border: solid 2px black;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+    background-color: rgb(36 130 97); 
+    color: white;
+    transition: background-color 0.5s;
+}
+.confirmTag {
+    background-color: rgb(36 130 97);
+}
+.confirmTag:hover {
+    background-color: rgb(12, 233, 155);
+}
+.removeTag {
+    padding: 4px 4px;
+    background-color: rgb(130, 36, 36);
+}
+.removeTag:hover {
+    background-color: rgb(233, 12, 12);
+}
+
+.postBTN {
+    padding: 5px 10px;
+    font-size: 20px;
+    border: solid 2px black;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+    background-color: rgb(36 130 97); 
+    color: white;
+    transition: background-color 0.5s;
+    margin-top: 30px;
+}
+.postBTN:hover {
+    background-color: rgb(12, 233, 155);
 }
