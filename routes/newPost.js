@@ -9,6 +9,8 @@ const mongoose = require('mongoose');
 const userSchema = require('../DB/userSchema');
 const userModel = mongoose.model("users", userSchema);
 
+const sendNewHashtags = require('../backScripts/sendNewHashtags')
+
 const router = express.Router();
 
 router.post('/', upload.single('image'), async (req, res) => {
@@ -27,9 +29,16 @@ router.post('/', upload.single('image'), async (req, res) => {
     if (userData.role === 'user') {
         return res.status(400).json({'message':'Authority error', 'code' : 400})
     }
+
+    // data handling 
     let reqBody = req.body;
     console.log('req.body ', reqBody);
-    console.log('req.file', req.file)
+    console.log('req.file', req.file);
+
+    // create new tags in DB if they didnt exist there already
+    if ('tags' in reqBody){
+        sendNewHashtags(reqBody.tags);
+    }
 
 
 
