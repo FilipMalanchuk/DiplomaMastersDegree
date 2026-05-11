@@ -11,6 +11,10 @@ if (tokenCookie) {
 
             let userProfileBlock = document.querySelector(".userProfile")
             userProfileBlock.style.display = "flex";
+            if(answer.data.user.role === 'admin' || answer.data.user.role === 'redactor') {
+                let newPostBlock = document.querySelector(".newPostBTN")
+                newPostBlock.style.display = "flex";
+            }
             document.querySelector('.userName').textContent = answer.data.user.name;
             document.querySelector(".userEmail").textContent = answer.data.user.email;
     }

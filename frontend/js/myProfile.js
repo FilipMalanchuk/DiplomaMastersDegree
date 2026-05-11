@@ -8,6 +8,10 @@ if (tokenCookie) {
             document.querySelector(".profileName span.name").textContent = answer.data.user.name;
             document.querySelector(".profileEmail span.email").textContent = answer.data.user.email;
             document.querySelector(".profileRole span.role").textContent = answer.data.user.role;
+            if(answer.data.user.role === 'admin' || answer.data.user.role === 'redactor') {
+                let newPostBlock = document.querySelector(".newPostBTN")
+                newPostBlock.style.display = "flex";
+            }
             if(answer.data.user.role === "admin") {
                 adminPanelDisplay();
                 getAdminData(1);
