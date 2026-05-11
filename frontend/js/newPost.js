@@ -49,4 +49,46 @@ function confirmedTagEvents (){
     })
 }
 
+//TODO ADD CHECKS BEFORE SEND DATA TO SERVER(remove ',' from tags ets)
+// button press to sendNewPost
+let postBTN = document.querySelector('.postBTN');
+postBTN.addEventListener('click', () => {
+    let dataToSend = collectData();
 
+    
+    fetch(`${window.location.protocol}//${window.location.host}/api/newPost`, {
+        method: 'POST',
+        credentials: "include",
+        body : dataToSend
+    }).then(res => {
+        return res.json();
+    }).then((data)=> {
+        let newData = JSON.parse(JSON.stringify(data))
+        if (newData.code === 200) {
+
+        }
+    }).catch(err => console.log(err));
+
+
+})
+
+
+function collectData() {
+    let postHeader = document.querySelector('.postHeader').value;
+    let postTextArea = document.querySelector('#postTextArea').value;
+    let tagBlocksArr = document.querySelectorAll('.confirmedTag');
+    let tagsArr = [];
+    for (let i = 0; i<tagBlocksArr.length;i++){
+        tagsArr.push(tagBlocksArr[i].textContent);
+    }
+    let postImage = document.querySelector('#postImage');
+    const file = postImage.files[0];
+
+    const formData = new FormData();
+    formData.append("image", file);
+    formData.append("headline", postHeader);
+    formData.append("articleText", postTextArea);
+    formData.append("tags", tagsArr);
+
+    return formData
+}
