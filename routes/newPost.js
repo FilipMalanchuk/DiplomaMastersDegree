@@ -65,10 +65,12 @@ router.post('/', upload.single('image'), async (req, res) => {
         //s3
         // random name for s3bucket
         let randomName = '';
+        let fileNameOriginal = ''
 
         // check if there is a File with an article to save into s3 bucket
         if (typeof req.file !== "undefined") {
             randomName = getRandomName();
+            fileNameOriginal = req.file.originalname;
 
             // image params to save
             const params = {
@@ -96,6 +98,7 @@ router.post('/', upload.single('image'), async (req, res) => {
             headline: req.body.headline,
             articleText: req.body.articleText,
             imageName: randomName,
+            imageOriginalName : fileNameOriginal,
             articleTags: hashtagsArr
         })
 

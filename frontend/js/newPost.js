@@ -29,8 +29,12 @@ if (tokenCookie) {
 // button to add new tag for the post
 let confirmTagBTN = document.querySelector(".confirmTag"); 
 confirmTagBTN.addEventListener('click', (e)=>{
-    let inputedTag = document.querySelector('#postTags').value;
-    insertTag(inputedTag)
+    let postTagsVal = document.querySelector('#postTags').value;
+    if (postTagsVal.length<1){return}
+
+    let inputedTag = postTagsVal;
+    insertTag(inputedTag);
+    document.querySelector('#postTags').value = '';
 })
 function insertTag(value) {
     let target = document.querySelector(".tagsDiv");
@@ -65,7 +69,10 @@ postBTN.addEventListener('click', () => {
     }).then((data)=> {
         let newData = JSON.parse(JSON.stringify(data))
         if (newData.code === 200) {
-
+            document.querySelector('.articlePosted').style.display = 'block';
+            setTimeout(() => {
+                document.querySelector('.articlePosted').style.display = 'none';
+            }, 2000);
         }
     }).catch(err => console.log(err));
 
