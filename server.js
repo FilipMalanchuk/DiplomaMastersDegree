@@ -3,6 +3,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cookieParser = require('cookie-parser');
 
+// routes
 const userSchema = require('./DB/userSchema');
 const hashtagsSchema = require('./DB/hashtagsSchema');
 const articleSchema = require("./DB/articleSchema");
@@ -17,12 +18,14 @@ const newPost = require("./routes/newPost");
 const adminData = require("./routes/adminData");
 const adminChangeUserData = require("./routes/adminChangeUserData");
 
+// app configuration starts here
 const app = express()
 app.use(express.json())
 app.use(express.static(__dirname + "/frontend"));
 app.use(cookieParser());
 
 const port = 3000
+
 
 
 
@@ -53,8 +56,6 @@ app.get(['/newPost'], (req, res) => {
     res.sendFile("frontend/newPost.html", {root: __dirname})
 })
 // todo route 404
-
-
 
 
 

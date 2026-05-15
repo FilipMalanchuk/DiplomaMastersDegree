@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/FilipMalanchuk/DiplomaMastersDegree#readme",
   "dependencies": {
+    "@aws-sdk/client-s3": "^3.1047.0",
     "bcrypt": "^6.0.0",
     "cookie-parser": "^1.4.7",
     "dotenv": "^17.3.1",
