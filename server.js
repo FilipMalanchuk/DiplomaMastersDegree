@@ -13,6 +13,7 @@ const tokenVerification = require("./routes/tokenVerification");
 const indexFeed = require("./routes/indexFeed");
 const checkLogged = require("./routes/checkLogged");
 const newPost = require("./routes/newPost");
+const getFeed = require("./routes/getFeed");
 
 // admin stuff
 const adminData = require("./routes/adminData");
@@ -34,6 +35,7 @@ app.use('/api/login', loginRoute);
 app.use('/api/indexFeed', indexFeed);
 app.use('/api/checkLogged',checkLogged);
 app.use('/api/newPost',newPost);
+app.use('/api/getFeed', getFeed);
 
 app.use('/api/adminData', adminData);
 app.use('/api/adminChangeUserData', adminChangeUserData);
