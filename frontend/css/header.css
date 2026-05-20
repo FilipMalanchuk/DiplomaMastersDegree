@@ -3,6 +3,8 @@
     width: 100%;
     min-height: 100px;
     background-color: rgba(0, 0, 0,0.5);
+    position: sticky;
+    top: 0;
 }
 .btnLine {
     padding-top: 10px;

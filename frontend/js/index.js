@@ -1,6 +1,8 @@
 import {sendToken, getCookie} from './tokenConfirmation.js'
 import {getFeed} from './getFeed.js'
+import { insertArticles } from './insertArticles.js';
 
+let pageCounter = 0;
 let tokenCookie = getCookie('token');
 if (tokenCookie) {
     let answer = await sendToken(tokenCookie);
@@ -20,5 +22,20 @@ if (tokenCookie) {
             document.querySelector(".userEmail").textContent = answer.data.user.email;
     }
 }
+async function getAndDisplayData (page) {
+    let feedData = await getFeed(page);
+    let articlesInsertTarget = document.querySelector('.main')
+    insertArticles(feedData.articles, articlesInsertTarget);
+    document.querySelectorAll(".loadMoreBTN").forEach(item => {item.remove()});
+    articlesInsertTarget.insertAdjacentHTML('beforeend',`<div class="loadMoreBTN">Load more news</div>`);
+    addEventToBTNLoadMore();
+}
+getAndDisplayData(0);
 
-getFeed();
+function addEventToBTNLoadMore () {
+    let loadMoreBTN = document.querySelector('.loadMoreBTN');
+loadMoreBTN.addEventListener('click',()=>{
+    pageCounter++;
+    getAndDisplayData(pageCounter);
+})
+}

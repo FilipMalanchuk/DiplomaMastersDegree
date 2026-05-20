@@ -10,8 +10,7 @@ export async function getFeed(page = 0) {
         })
 
         const data = await response.json();
-        console.log(data)
-        // let newData = JSON.parse(JSON.stringify(data))
+        return data
 
 
 

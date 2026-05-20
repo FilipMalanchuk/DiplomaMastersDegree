@@ -1,6 +1,5 @@
 const express = require('express');
 const signImageUrlAndAttackToData = require('../backScripts/signImageUrlAndAttackToData');
-console.log('signimageUrlAndAttackToData ',signImageUrlAndAttackToData)
 
 
 const tokenVerification = require('./tokenVerification');
@@ -15,7 +14,7 @@ const router = express.Router();
 router.post('/', async (req, res) => {
     try {
         // getting last 10 * page articles from DB 
-        let data = await articleModel.find().skip(req.body.page * 10).limit(10);
+        let data = await articleModel.find().sort({ _id: -1 }).skip(req.body.page * 10).limit(10);
         let dataWithImageUrl = await signImageUrlAndAttackToData(data)
         return res.status(200).json({
             message : "articlesDataRecieved",
