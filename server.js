@@ -17,6 +17,7 @@ const getFeed = require("./routes/getFeed");
 const getHashtags = require("./routes/getHashtags");
 const subscribeOnHashtag = require("./routes/subscribeOnHashtag")
 const unSubOnHashtag = require("./routes/unSubOnHashtag");
+const mySubs = require("./routes/mySubs")
 
 // admin stuff
 const adminData = require("./routes/adminData");
@@ -42,6 +43,7 @@ app.use('/api/getFeed', getFeed);
 app.use('/api/getHashtags',getHashtags);
 app.use('/api/subscribeOnHashtag',subscribeOnHashtag);
 app.use('/api/unSubOnHashtag',unSubOnHashtag);
+app.use('/api/getPersonalFeed', mySubs)
 
 app.use('/api/adminData', adminData);
 app.use('/api/adminChangeUserData', adminChangeUserData);
@@ -65,6 +67,9 @@ app.get(['/newPost'], (req, res) => {
 })
 app.get(['/hashtags'],(req, res) => {
     res.sendFile("frontend/hashtagsPage.html", {root : __dirname})
+})
+app.get(['/mySubs'],(req, res) => {
+    res.sendFile("frontend/mySubscribtions.html", {root : __dirname})
 })
 // todo route 404
 

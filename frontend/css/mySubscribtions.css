@@ -1,0 +1,11 @@
+.flagYouMustLogin {
+    height: 50px;
+    font-size: 32px;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.flagYouMustLogin span {
+    display: block;
+}
