@@ -25,7 +25,8 @@ router.post('/', async (req, res) => {
             'name' : userData.name,
             'email' : userData.email, 
             'role' : userData.role, 
-            'banned' : userData.banned
+            'banned' : userData.banned,
+            'subscriptions' : userData.subscriptions
         }
     })
 })

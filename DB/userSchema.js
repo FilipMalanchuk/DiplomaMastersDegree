@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-const hashtagsSchema = require('./hashtagsSchema');
 const bcrypt = require('bcrypt');
 
 const userSchema = new mongoose.Schema({
@@ -9,7 +8,7 @@ const userSchema = new mongoose.Schema({
     password : String,
     banned : {type : Boolean, default : false},
     createdAt : {type : Date, default : Date.now},
-    subscriptions : {type : [hashtagsSchema]},
+    subscriptions : {type : [String]},
     telegram : {type : String, default : 'noInfo'}
 })
 

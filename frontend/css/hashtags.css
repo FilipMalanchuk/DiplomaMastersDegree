@@ -1,0 +1,49 @@
+.main {
+    display: flex;
+    background-color: white;
+    width: 1000px;
+    min-height: 500px;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 10px;
+    flex-wrap: wrap;
+    align-content: flex-start;
+}
+.main .tag {
+    background-color: rgb(40, 40, 63);
+    font-size: 24px;
+    height: fit-content;
+    padding: 5px;
+    border-radius: 5px;
+    color: white;
+    position: relative;
+    margin-right: 5px;
+    margin-bottom: 15px;
+}
+.main .tag.subscribed {
+    background-color: green;
+}
+.main .tag .tagMenu {
+    display: none;
+    position: absolute;
+    cursor: pointer;
+    top: -155%;
+    left: 0;
+    z-index: 999;
+    background-color: rgb(40, 40, 63);
+    border: 2px solid rgb(255, 255, 255);
+    border-radius: 10px;
+    padding: 5px;
+}
+.main .tag:hover .tagMenu {
+    display: block;
+}
+.main .tag .tagMenu > *:hover {
+    color: rgb(5, 208, 5);
+}
+.main .tag .tagMenu > .unSubOnTag:hover {
+    color: red;
+}
+.main .tag span {
+    color: rgb(255, 255, 255)
+}

@@ -14,6 +14,9 @@ const indexFeed = require("./routes/indexFeed");
 const checkLogged = require("./routes/checkLogged");
 const newPost = require("./routes/newPost");
 const getFeed = require("./routes/getFeed");
+const getHashtags = require("./routes/getHashtags");
+const subscribeOnHashtag = require("./routes/subscribeOnHashtag")
+const unSubOnHashtag = require("./routes/unSubOnHashtag");
 
 // admin stuff
 const adminData = require("./routes/adminData");
@@ -36,6 +39,9 @@ app.use('/api/indexFeed', indexFeed);
 app.use('/api/checkLogged',checkLogged);
 app.use('/api/newPost',newPost);
 app.use('/api/getFeed', getFeed);
+app.use('/api/getHashtags',getHashtags);
+app.use('/api/subscribeOnHashtag',subscribeOnHashtag);
+app.use('/api/unSubOnHashtag',unSubOnHashtag);
 
 app.use('/api/adminData', adminData);
 app.use('/api/adminChangeUserData', adminChangeUserData);
@@ -56,6 +62,9 @@ app.get(['/myProfile'],(req, res) => {
 })
 app.get(['/newPost'], (req, res) => {
     res.sendFile("frontend/newPost.html", {root: __dirname})
+})
+app.get(['/hashtags'],(req, res) => {
+    res.sendFile("frontend/hashtagsPage.html", {root : __dirname})
 })
 // todo route 404
 

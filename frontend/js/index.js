@@ -22,6 +22,8 @@ if (tokenCookie) {
             document.querySelector(".userEmail").textContent = answer.data.user.email;
     }
 }
+
+//function responsible for data(from DB) display on page
 async function getAndDisplayData (page) {
     let feedData = await getFeed(page);
     let articlesInsertTarget = document.querySelector('.main')
