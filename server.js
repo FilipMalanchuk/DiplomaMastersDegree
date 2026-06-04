@@ -17,7 +17,8 @@ const getFeed = require("./routes/getFeed");
 const getHashtags = require("./routes/getHashtags");
 const subscribeOnHashtag = require("./routes/subscribeOnHashtag")
 const unSubOnHashtag = require("./routes/unSubOnHashtag");
-const mySubs = require("./routes/mySubs")
+const mySubs = require("./routes/mySubs");
+const searchQuery = require("./routes/searchQuery");
 
 // admin stuff
 const adminData = require("./routes/adminData");
@@ -28,6 +29,7 @@ const app = express()
 app.use(express.json())
 app.use(express.static(__dirname + "/frontend"));
 app.use(cookieParser());
+app.set("view engine", "ejs");
 
 const port = 3000
 
@@ -47,6 +49,8 @@ app.use('/api/getPersonalFeed', mySubs)
 
 app.use('/api/adminData', adminData);
 app.use('/api/adminChangeUserData', adminChangeUserData);
+
+app.use("/search", searchQuery);
 
 
 // pages routes

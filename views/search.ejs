@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/articles.css">
+    <title>Search</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="inner">
+            <div class="header">
+                <div class="btnLine">
+                    <div class="searchBTN BTN"><a href="#">Search</a></div>
+                    <div class="logInBTN BTN"><a href="/loginPage">Login</a></div>
+                    <div class="registerBTN BTN"><a href="/registerPage">Register</a></div>
+                    <div class="newPostBTN BTN" style="display: none;"><a href="/newPost">New Post</a></div>
+                    <a class="userProfile" style="display: none;" href="/myProfile">
+                        <div class="userImage"></div>
+                        <span class="userName"></span>
+                        <div class="hoverInfoBox">
+                            <div class="userEmail"></div>
+                        </div>
+                    </a>
+                </div>
+                <div class="menu">
+                    <div class="home"><a href="/index.html">Home</a></div>
+                    <div class="hashtags"><a href="/hashtags">Hashtags</a></div>
+                    <div class="subscribtions"><a href="/mySubs">My Subscriptions</a></div>
+                </div>
+            </div> <!-- end of header -->
+            <p style="text-align: center; font-size: 20px; color: red;">Make search Line here</p>
+            <div class="main">
+                <% articles.forEach(article=> { %>
+                    <div class="article">
+                        <div class="articleHeadline">
+                            <%=article.headline%>
+                        </div>
+                        <div class="articleImage"><img src="<%=article.imageUrl%>" alt="<%=article.imageOriginalName%>"></div>
+                        <div class="articleText">
+                            <% const text = article.articleText.split("\n"); %>
+                            <% text.forEach(textP=> { %>
+                                <p><%=textP%></p>
+                            <% }) %>
+                        </div>
+                        <span style="display: none;" class="articleID">
+                            <%=article._id%>
+                        </span>
+                        <div class="articleTags">
+                            <% article.articleTags.forEach(tag=> { %>
+                                <span class="tag"><%=tag%></span>
+                            <% }) %>
+                        </div>
+                    </div>
+                    <% }) %>
+            </div>
+        </div><!-- end of inner -->
+    </div><!-- end of wrapper -->
+    <script type="module" src="js/search.js"></script>
+</body>
+
+</html>
