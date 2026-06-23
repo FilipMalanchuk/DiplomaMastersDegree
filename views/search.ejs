@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/articles.css">
+    <link rel="stylesheet" href="css/search.css">
     <title>Search</title>
 </head>
 
@@ -33,7 +34,21 @@
                     <div class="subscribtions"><a href="/mySubs">My Subscriptions</a></div>
                 </div>
             </div> <!-- end of header -->
-            <p style="text-align: center; font-size: 20px; color: red;">Make search Line here</p>
+            <div class="searchTab">
+                <div class="searchInputSpace">
+                    <input type="text" name="searchInput" id="searchInput" placeholder="Input Text">
+                    <div id="searchBTN"></div>
+                </div>
+                <div class="tagSpace">
+                    <div class="tagInputSpace">
+                        <input type="text" name="tagInput" id="tagInput" placeholder="Input Tag">
+                        <div id="addTagBTN"></div>
+                    </div>
+                    <div id="inputedTags">
+                        
+                    </div>
+                </div>
+            </div>
             <div class="main">
                 <% articles.forEach(article=> { %>
                     <div class="article">
@@ -57,6 +72,10 @@
                         </div>
                     </div>
                     <% }) %>
+                    <div class="pages">
+                        <div id="prev">Previous Page</div>
+                        <div id="next">Next Page</div>
+                    </div>
             </div>
         </div><!-- end of inner -->
     </div><!-- end of wrapper -->

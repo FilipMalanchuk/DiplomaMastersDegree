@@ -14,8 +14,7 @@ router.get("/", async (req, res) => {
         // TODO
         let caseSensetive = true;
         //  $options: "i" 
-        let page = 0;
-
+        let page = req.query.page ? req.query.page : 0;
         let searchText = req.query.searchText ? req.query.searchText.split(" ").join("|") : "";
         let tagsArr = req.query.tags ? req.query.tags.split(" ") : [];
 
@@ -34,20 +33,20 @@ router.get("/", async (req, res) => {
 
 
             if (searchText && tagsArr.length > 0) {
-                let dbSearch = await articleModel.find({ $and: [tagsQuery, textSearchQuery] })
+                let dbSearch = await articleModel.find({ $and: [tagsQuery, textSearchQuery] }).sort({ _id: -1 }).skip(page * 10).limit(10);
                 queryResults = dbSearch;
             } else if (searchText) {
-                let dbSearch = await articleModel.find(textSearchQuery);
+                let dbSearch = await articleModel.find(textSearchQuery).sort({ _id: -1 }).skip(page * 10).limit(10);;
                 queryResults = dbSearch;
             } else if (tagsArr.length > 0) {
-                let dbSearch = await articleModel.find(tagsQuery);
+                let dbSearch = await articleModel.find(tagsQuery).sort({ _id: -1 }).skip(page * 10).limit(10);;
                 queryResults = dbSearch;
             } else {
                 console.log("searchQueryError");
             }
         }
         let dataWithImageUrl = await signImageUrlAndAttackToData(queryResults)
-        dataWithImageUrl.reverse();
+        
 
 
         res.render("search", {

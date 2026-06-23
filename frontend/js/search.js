@@ -21,3 +21,71 @@ if (tokenCookie) {
     }
 }
 
+let searchBTN = document.getElementById("searchBTN");
+searchBTN.addEventListener("click", searchNews)
+
+function searchNews() {
+    let textInputVal = document.getElementById("searchInput").value
+    let inputedTags = document.getElementById("inputedTags").querySelectorAll(".inputedTag .tagName");
+    let tagNames = []
+    inputedTags.forEach(item => {
+        tagNames.push(item.innerHTML)
+    })
+    console.log(textInputVal);
+    console.log(tagNames);
+    tagNames = tagNames.join("%20")
+    textInputVal = textInputVal.split(" ").join("%20")
+    let fetchStrToAdd = `?tags=${tagNames}&searchText=${textInputVal}`
+    console.log(fetchStrToAdd);
+    window.location.href = `${window.location.protocol}//${window.location.host}/search${fetchStrToAdd}`
+}
+
+
+let addTagBTN = document.getElementById("addTagBTN");
+addTagBTN.addEventListener("click", addTag);
+
+function addTag() {
+    let inputedData = document.getElementById("tagInput").value;
+    let inputedTags = document.getElementById("inputedTags");
+
+    inputedTags.insertAdjacentHTML("beforeend", `<div class="inputedTag">
+                            <div class="tagName">${inputedData}</div>
+                            <div class="removeTagBTN"></div>
+                        </div>`);
+    reAddEventListenersTagRemove();
+}
+function reAddEventListenersTagRemove() {
+    let removeTagBTNArr = document.querySelectorAll('.removeTagBTN');
+    removeTagBTNArr.forEach(item => item.removeEventListener("click",removeElemTag));
+    removeTagBTNArr.forEach(item => item.addEventListener("click", removeElemTag));
+}
+function removeElemTag() {
+    this.parentElement.remove();
+}
+
+// pages functions here
+let prev = document.getElementById("prev");
+let next = document.getElementById("next");
+
+let params = new URLSearchParams(document.location.search);
+let page = params.get("page");
+let tags = params.get("tags");
+let searchText = params.get("searchText");
+if (page == 0) {
+    prev.classList.add("disabled");
+}
+prev.addEventListener("click",()=>{
+    if (page == 0 || page == null) {return}
+    changePage(--page)
+})
+next.addEventListener("click",()=>{
+    if (page == null && tags == null && searchText == null) {return}
+    changePage(++page)
+})
+
+function changePage(page) {
+    console.log(1)
+    let params = new URLSearchParams(document.location.search);
+    let fetchStrToAdd = "tags=" + params.get("tags") + "&searchText=" + params.get("searchText") + "&page=" + page;
+    window.location.href = `${window.location.protocol}//${window.location.host}/search?${fetchStrToAdd}`
+}

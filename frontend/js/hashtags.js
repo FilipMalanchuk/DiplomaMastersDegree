@@ -30,12 +30,16 @@ async function getAndDisplayHashtags(page = 0){
     let answer = await getHashtags(page);
     let main = document.querySelector(".main");
     let hashtagsArr = answer.hashtags;
+
+    //------------------ВКЛЮЧИТЬ НЕ ЗАБЫТЬ
+    //hashtagsArr.sort((a, b) => a.hashtagName.localeCompare(b.hashtagName))
+
     hashtagsArr.forEach(obj => {
         let strToInsert = `
                 <div class="tag">
                     <div class="tagMenu">
                         <div class="subscribeOnTag" id="${obj.hashtagName}">Subscibe</div>
-                        <div class="searchTag">Search</div>
+                        <div class="searchTag"><a href="/search?tags=${obj.hashtagName}&searchText=">Search</a></div>
                     </div>
                     <span>${obj.hashtagName}</span>
                 </div>`

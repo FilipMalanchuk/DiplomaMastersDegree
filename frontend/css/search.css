@@ -1,0 +1,108 @@
+.searchTab {
+    width: 100%;
+    min-height: 50px;
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.searchTab .searchInputSpace {
+    display: flex;
+    margin-bottom: 10px;
+    width: 550px;
+}
+.searchTab #searchInput {
+    width: 500px;
+    height: 30px;
+    border-radius: 5px;
+    text-indent: 10px;
+    font-size: 16px;
+}
+.searchTab #searchBTN {
+    height: 30px;
+    width: 30px;
+    margin-left: 5px;
+    background-color: white;
+    background-image: url("../img/Search_Icon.svg");
+    background-size: cover;
+    background-position: 50% 50%;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.searchTab .tagSpace {
+    display: flex;
+    width: 550px;
+    min-height: 30px;
+    flex-direction: column;
+}
+.searchTab .tagSpace #tagInput {
+    height: 30px;
+    border-radius: 5px;
+    text-indent: 10px;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+.searchTab .tagSpace #addTagBTN {
+    height: 30px;
+    width: 30px;
+    cursor: pointer;
+    margin-left: 5px;
+    background-color: white;
+    background-image: url("../img/Plus_symbol.svg");
+    background-size: cover;
+    background-position: 50% 50%;
+    border-radius: 5px;
+}
+.searchTab .tagSpace .tagInputSpace {
+    display: flex;
+}
+.searchTab .tagSpace #inputedTags {
+    display: flex;
+}
+.searchTab .tagSpace #inputedTags .inputedTag {
+    background-color: rgb(40, 40, 63);
+    font-size: 16px;
+    height: fit-content;
+    width: fit-content;
+    padding: 5px;
+    border-radius: 5px;
+    color: white;
+    position: relative;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    display: flex;
+}
+.searchTab .tagSpace .removeTagBTN {
+    height: 20px;
+    width: 20px;
+    cursor: pointer;
+    background-color: white;
+    background-image: url("../img/Red_X.svg");
+    background-size: 70%;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    border-radius: 5px;
+    margin-left: 5px;
+}
+
+
+/* search ends here */
+.pages {
+    display: flex;
+}
+.pages > * {
+    margin-left: 10px;
+    min-height: 30px;
+    background-color: white;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 20px;
+    text-align: center;
+    vertical-align: middle;
+}
+.pages .disabled {
+    background-color: gray;
+    cursor: default;
+}
