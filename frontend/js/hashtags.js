@@ -31,8 +31,7 @@ async function getAndDisplayHashtags(page = 0){
     let main = document.querySelector(".main");
     let hashtagsArr = answer.hashtags;
 
-    //------------------ВКЛЮЧИТЬ НЕ ЗАБЫТЬ
-    //hashtagsArr.sort((a, b) => a.hashtagName.localeCompare(b.hashtagName))
+    hashtagsArr.sort((a, b) => a.hashtagName.localeCompare(b.hashtagName))
 
     hashtagsArr.forEach(obj => {
         let strToInsert = `
